@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { PipesModule } from '../pipes/pipes.module';
 
 import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
+import { MapaComponent } from './mapa/mapa.component';
 import { PostComponent } from './post/post.component';
 import { PostsComponent } from './posts/posts.component';
 
@@ -13,7 +14,8 @@ import { PostsComponent } from './posts/posts.component';
   declarations: [
     PostsComponent,
     PostComponent,
-    AvatarSelectorComponent
+    AvatarSelectorComponent,
+    MapaComponent
   ],
   exports: [
     PostsComponent,

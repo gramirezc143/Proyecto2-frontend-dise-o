@@ -21,6 +21,13 @@ export class Tab1Page implements OnInit {
 
       this.siguentes();
 
+      this.postsService.nuevoPost
+        .subscribe( post => {
+
+          this.posts.unshift( post );
+          
+        });
+
     }
 
     recargar( event ) {

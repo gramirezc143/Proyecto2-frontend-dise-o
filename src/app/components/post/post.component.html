@@ -16,6 +16,7 @@
 
 
   <!-- ngIf imgs.... -->
+  <!--
   <ion-slides mode="ios" pager="true" scrollbar="ios">
    
       <ion-slide class="image-slide"
@@ -33,7 +34,10 @@
 
   </ion-slides>
 
+  -->
+
   <!-- mapa -->
+  <app-mapa [coords]="post.coords"></app-mapa>
 
   <ion-item>
     <ion-icon slot="start" name="heart-empty"></ion-icon>
@@ -42,9 +46,7 @@
 
   <ion-item line="none">
     <ion-label text-wrap>
-      <!-- {{ post.mensaje }}-->
-     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis inventore ea laboriosam officiis aliquid eveniet illo sunt eos minus! Excepturi autem, architecto incidunt animi natus dolore at tempora vero cupiditate!
-     
+       {{ post.mensaje }}
     </ion-label>
   </ion-item>
 
