@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Storage } from '@ionic/storage';
+import { NavController } from '@ionic/angular';
 
 import { environment } from 'src/environments/environment';
 
@@ -15,9 +16,11 @@ const URL = environment.url;
 export class UsuarioService {
 
   token: string = null;
+  usuario: Usuario ={};
 
   constructor( private http: HttpClient,
-               private storage: Storage) { }
+               private storage: Storage,
+               private navCtrl: NavController) { }
 
                
 // Funcion login
@@ -77,5 +80,44 @@ export class UsuarioService {
   }
 
 
+  //Metodo para leer token del Storage
+  async cargarToken() {
+
+    this.token = await this.storage.get('token') || null;
+
+  }
+
+
+// Metodo para verificar token
+async validaToken(): Promise<boolean> {
+
+  await this.cargarToken();
+
+  if ( !this.token ) {
+    this.navCtrl.navigateRoot('/login');
+    return Promise.resolve(false);
+  }
+
+  return new Promise<boolean>( resolve => {
+
+    const headers = new HttpHeaders({
+      'x-token': this.token
+    });
+
+    this.http.get(`${ URL }/user/`, { headers })
+      .subscribe( resp => {
+
+        if ( resp['ok'] ){
+          this.usuario = resp['usuario'];
+          resolve(true);
+        } else {
+          this.navCtrl.navigateRoot('/login');
+          resolve(false);
+        }
+      });
+
+
+  });
+}
 
 }
