@@ -34,13 +34,15 @@ export class Tab2Page {
 
   async crearPost() {
     console.log(this.post);
-    const creadp = await this.postsService.crearPost( this.post );
+    const creado = await this.postsService.crearPost( this.post );
 
     this.post = {
       mensaje: '',
       coords: null,
       posicion: false
     };
+
+    this.tempImages = [];
 
     this.route.navigateByUrl('/main/tabs/tab1');
 
@@ -71,7 +73,7 @@ export class Tab2Page {
      });
   }
 
-
+// Método para tomar una foto con la cámara
   camara() {
 
     const options: CameraOptions = {
@@ -82,19 +84,38 @@ export class Tab2Page {
       correctOrientation: true,
       sourceType: this.camera.PictureSourceType.CAMERA
     };
-    
+    this.procesarImagen( options );
+
+  }
+
+  //Método para obtener una foto de la libreria 
+  libreria() {
+    const options: CameraOptions = {
+      quality: 60,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+    };
+    this.procesarImagen( options );
+
+  }
+
+// método para procesar la imagen 
+  procesarImagen( options: CameraOptions ) {
     this.camera.getPicture(options).then(( imageData ) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     
-     const img = window.Ionic.WebView.convertFileSrc( imageData );
-
-
-    }, (err) => {
-     // Handle error
-    });
-
-
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      
+      const img = window.Ionic.WebView.convertFileSrc( imageData );
+ 
+      this.postsService.subirImagen ( imageData );
+      this.tempImages.push( img );
+ 
+     }, (err) => {
+      // Handle error
+     });
   }
 
 }

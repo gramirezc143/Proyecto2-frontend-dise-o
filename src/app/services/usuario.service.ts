@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { async } from '@angular/core/testing';
 
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
@@ -31,11 +32,11 @@ export class UsuarioService {
     return new Promise( resolve => {
 
       this.http.post(`${ URL }/user/login`, data)
-      .subscribe( resp => {
+      .subscribe( async resp => {
         console.log(resp);
 
         if ( resp['ok'] ) {
-          this.guardarToken( resp['token'] );
+          await this.guardarToken( resp['token'] );
           resolve(true);
         } else {
           this.token = null;
@@ -46,17 +47,25 @@ export class UsuarioService {
     });
   }
 
+  //Función logout
+  logout(){
+    this.token = null;
+    this.usuario = null;
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/login', { animated: true });
+  }
+
   // Función para el registro de Usuarios
   registro( usuario: Usuario) {
 
     return new Promise( resolve => {
 
       this.http.post(`${ URL }/user/create`, usuario)
-          .subscribe( resp => {
+          .subscribe( async resp => {
             console.log(resp);
 
             if ( resp['ok'] ) {
-              this.guardarToken( resp['token'] );
+              await this.guardarToken( resp['token'] );
               resolve(true);
             } else {
               this.token = null;
@@ -86,6 +95,8 @@ export class UsuarioService {
 
     this.token = token;
     await this.storage.set('token', token);
+
+    await this.validaToken();
 
   }
 

@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/interface';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 
+import { PostsService } from '../../services/posts.service';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class Tab3Page implements OnInit {
   usuario: Usuario = {};
 
   constructor(  private usuarioService: UsuarioService,
-                private uiService: UiServiceService ) {}
+                private uiService: UiServiceService,
+                private postsService: PostsService ) {}
 
 
   ngOnInit() {
@@ -42,6 +44,7 @@ export class Tab3Page implements OnInit {
 
 
   logout() {
-    
+    this.postsService.paginaPosts = 0;
+    this.usuarioService.logout();
   }
 }
