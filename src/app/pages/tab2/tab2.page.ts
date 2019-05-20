@@ -73,7 +73,7 @@ export class Tab2Page {
      });
   }
 
-// Método para tomar una foto con la cámara
+// Metodo para tomar una foto con la camara
   camara() {
 
     const options: CameraOptions = {
@@ -88,7 +88,7 @@ export class Tab2Page {
 
   }
 
-  //Método para obtener una foto de la libreria 
+  //Metodo para obtener una foto de la libreria 
   libreria() {
     const options: CameraOptions = {
       quality: 60,
@@ -102,7 +102,7 @@ export class Tab2Page {
 
   }
 
-// método para procesar la imagen 
+// metodo para procesar la imagen 
   procesarImagen( options: CameraOptions ) {
     this.camera.getPicture(options).then( ( imageData ) => {
       // imageData is either a base64 encoded string or a file URI

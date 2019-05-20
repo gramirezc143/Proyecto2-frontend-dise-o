@@ -3,7 +3,7 @@
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.0.100:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -86,13 +86,13 @@
     <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
-        <string>Necesito tu autorización para saber tu ubicación</string>
+        <string>Necesito tu autorizacion para saber tu ubicacion</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
         <string>Se necesita acceso para tomar fotos</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
-        <string>Se necesita acceso a la librería</string>
+        <string>Se necesita acceso a la libreria</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>Se necesita geolocation</string>

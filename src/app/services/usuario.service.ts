@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { async } from '@angular/core/testing';
 
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
@@ -47,7 +46,7 @@ export class UsuarioService {
     });
   }
 
-  //Función logout
+  //Funcion logout
   logout(){
     this.token = null;
     this.usuario = null;
@@ -55,7 +54,7 @@ export class UsuarioService {
     this.navCtrl.navigateRoot('/login', { animated: true });
   }
 
-  // Función para el registro de Usuarios
+  // Funcion para el registro de Usuarios
   registro( usuario: Usuario) {
 
     return new Promise( resolve => {
@@ -79,7 +78,7 @@ export class UsuarioService {
 
   }
 
-// Funcion para obtener el usuario, retornado un nuevo objeto, haciendo la destructurzcion del usuario
+// Funcion para obtener el usuario, retornado un nuevo objeto, haciendo la destructuracion del usuario
   getUsuario() {
 
     if ( !this.usuario._id ) {
@@ -139,7 +138,7 @@ async validaToken(): Promise<boolean> {
   });
 }
 
-// Método para actualizar Usuario
+// Metodo para actualizar Usuario
   actualizarUsuario( usuario: Usuario ){
 
     const headers = new HttpHeaders({
@@ -159,7 +158,6 @@ async validaToken(): Promise<boolean> {
         }
       }); 
     });
-    
   }
 
 }

@@ -53,7 +53,7 @@ export class PostsService {
     });
   }
 
-  // Función para subir imágenes
+  // Funcion para subir imagenes
   subirImagen( img: string ) {
 
     const options: FileUploadOptions = {

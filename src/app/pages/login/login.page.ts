@@ -19,15 +19,15 @@ export class LoginPage implements OnInit {
 
 
 loginUser = {
-  email: 'gramirezc143@gmail.com',
-  password: 'ga2652437'
+  email: '',
+  password: ''
 };
 
 
 registerUser: Usuario = {
-  email: 'test',
-  password: '123456',
-  nombre: 'Test',
+  email: '',
+  password: '',
+  nombre: '',
   avatar: 'av-1.png'
 }
 
@@ -41,7 +41,7 @@ registerUser: Usuario = {
   }
 
 
-  // Función Login
+  // Funcion Login
   async login( fLogin: NgForm ) {
     if(fLogin.invalid) {return;}
     const valido = await this.usuarioService.login( this.loginUser.email, this.loginUser.password);
@@ -50,8 +50,8 @@ registerUser: Usuario = {
       // navegar al tabs
       this.navCtrl.navigateRoot( '/main/tabs/tab1', { animated: true } );
     } else {
-      // mostrar alerta de usuario y contraseña no correctos
-      this.uiService.alertaInformativa('Usuario y contraseña no son correctos.');
+      // mostrar alerta de usuario y contrasena no correctos
+      this.uiService.alertaInformativa('Usuario y contrasena no son correctos');
     }
   }
 
@@ -67,8 +67,8 @@ registerUser: Usuario = {
       // navegar al tabs
       this.navCtrl.navigateRoot( '/main/tabs/tab1', { animated: true } );
     } else {
-      // mostrar alerta de correo electrónico existente
-      this.uiService.alertaInformativa('Ese correo electrónico ya existe.');
+      // mostrar alerta de correo electronico existente
+      this.uiService.alertaInformativa('Ese correo electronico ya existe');
     }
 
   }
