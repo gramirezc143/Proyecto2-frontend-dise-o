@@ -65,7 +65,7 @@ export class PostsService {
 
     const fileTransfer: FileTransferObject = this.fileTransfer.create();
 
-    fileTransfer.upload( img, `$ { URL }/posts/upload`, options )
+    fileTransfer.upload( img, `${ URL }/posts/upload`, options )
       .then( data => {
         console.log(data);
       }).catch( err => {
