@@ -8,6 +8,7 @@ export interface RespuestaPosts {
   export interface Post {
     imgs?: string[];
     _id?: string;
+    titulo?: string;
     mensaje?: string;
     coords?: string;
     usuario?: Usuario;

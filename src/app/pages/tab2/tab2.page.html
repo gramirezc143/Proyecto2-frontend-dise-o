@@ -18,11 +18,17 @@
   <ion-content padding>
   
     <ion-list>
+
+      <ion-item>
+          <ion-label position="floating">Titulo</ion-label>
+          <ion-textarea [(ngModel)]="post.titulo"></ion-textarea>
+      </ion-item>
       
       <ion-item>
         <ion-label position="floating">Mensaje</ion-label>
         <ion-textarea [(ngModel)]="post.mensaje"></ion-textarea>
       </ion-item>
+
   
       <ion-list>
         <ion-item>

@@ -19,6 +19,7 @@ export class Tab2Page {
   cargandoGeo = false;
 
   post = {
+    titulo: '',
     mensaje: '',
     coords: null,
     posicion: false
@@ -37,6 +38,7 @@ export class Tab2Page {
     const creado = await this.postsService.crearPost( this.post );
 
     this.post = {
+      titulo: '',
       mensaje: '',
       coords: null,
       posicion: false
