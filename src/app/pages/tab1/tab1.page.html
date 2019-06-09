@@ -25,7 +25,7 @@
   </ion-refresher>
 
   <!-- Posts -->
-  <app-posts [posts]="posts | filtro: textoBuscar"></app-posts>
+  <app-posts [posts]="posts | filtro: textoBuscar: 'titulo'"></app-posts>
 
   <!-- Infinite Scroll -->
 
