@@ -9,6 +9,12 @@
       Trabajos
     </ion-title>
   </ion-toolbar>
+
+  <ion-searchbar animated
+                  (ionChange)="buscar( $event )">
+  </ion-searchbar>
+
+
 </ion-header>
 
 <ion-content color="light">
@@ -19,7 +25,7 @@
   </ion-refresher>
 
   <!-- Posts -->
-  <app-posts [posts]="posts"></app-posts>
+  <app-posts [posts]="posts | filtro: textoBuscar"></app-posts>
 
   <!-- Infinite Scroll -->
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DomSanitizerPipe } from './dom-sanitizer.pipe';
+import { FiltroPipe } from './filtro.pipe';
 import { ImageSanitizerPipe } from './image-sanitizer.pipe';
 import { ImagenPipe } from './imagen.pipe';
 
@@ -9,12 +10,14 @@ import { ImagenPipe } from './imagen.pipe';
   declarations: [
     DomSanitizerPipe,
     ImagenPipe,
-    ImageSanitizerPipe
+    ImageSanitizerPipe,
+    FiltroPipe
   ],
   exports: [
     DomSanitizerPipe,
     ImagenPipe,
-    ImageSanitizerPipe
+    ImageSanitizerPipe,
+    FiltroPipe
   ]
 })
 export class PipesModule { }

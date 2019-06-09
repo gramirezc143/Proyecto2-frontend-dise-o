@@ -12,6 +12,7 @@ import { PostsService } from '../../services/posts.service';
 export class Tab1Page implements OnInit {
 
   posts: Post[] = [];
+  textoBuscar = '';
 
   habilitado = true;
 
@@ -34,6 +35,11 @@ export class Tab1Page implements OnInit {
       this.siguentes( event, true );
       this.habilitado = true;
       this.posts = [];
+    }
+
+    buscar( event ){
+      //console.log(event);
+      this.textoBuscar = event.detail.value;
     }
 
     
